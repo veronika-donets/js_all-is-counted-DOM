@@ -4,4 +4,11 @@
 
 body {
   background: $c-gray;
+  display: flex;
+  height: 100vh;
+}
+
+#add-text {
+  max-width: max-content;
+  margin: auto;
 }
