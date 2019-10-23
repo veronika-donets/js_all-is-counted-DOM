@@ -1,14 +1,10 @@
 'use strict';
 
-if (!sessionStorage.hasOwnProperty('clickAmount')) {
-  sessionStorage.setItem('clickAmount', 0);
-}
+let counter = sessionStorage.getItem('clickAmount') || 0;
+const text = document.getElementById('add-text');
+text.innerHTML = `You clicked 0 times`;
 
-document.getElementById('add-text').innerHTML
-  = `You clicked ${sessionStorage.clickAmount} times`;
-
-document.body.addEventListener('click', (targetEvent) => {
-  sessionStorage.clickAmount++;
-  document.getElementById('add-text').innerHTML
-    = `You clicked ${sessionStorage.clickAmount} times`;
+document.body.addEventListener('click', () => {
+  sessionStorage.setItem('clickAmount', ++counter);
+  text.innerHTML = `You clicked ${sessionStorage.clickAmount} times`;
 });
